@@ -1,33 +1,22 @@
 function triangleAreaCalculate(){
-    // get triangle base value 
-
-    const baseField = document.getElementById('triangle-base');
-    const baseValueText = baseField.value;
-    const base = parseFloat(baseValueText);
+    const base = getInputValue('triangle-base');
     console.log(base);
-
-    // get triangle height value 
-
-    const heightField = document.getElementById('triangle-height');
-    const heightValueText = heightField.value;
-    const height = parseFloat(heightValueText);
+    const height = getInputValue('triangle-height');
     console.log(height);
 
-    if(isNaN(base) || isNaN(height)){
-        alert('Plase insert a valid number');
+    if(isNaN(base)|| isNaN(height)){
+        alert('Please insert a valid number');
         return;
     }
 
+    const triangleArea = 0.5 * base * height;
+    console.log(triangleArea);
 
-    const area = 0.5 * base *height;
-    console.log(area);
+    const area = document.getElementById('triangle-area');
+    area.innerText = triangleArea;
 
-    // show triangle area
-    
-    const triangleArea = document.getElementById('triangle-area');
-    triangleArea.innerText = area;
+    addToCalculationEntry('Triangle',triangleArea)
 
-    addToCalculationEntry('Triangle',area)
 
 
     
@@ -50,7 +39,7 @@ function rectangleAreaCalculate(){
         return;
     }
 
-    const area = width * length;
+    const area = (width * length).toFixed(2);
     console.log(area);
 
     const rectangleArea = document.getElementById('rectangle-area');
@@ -72,7 +61,7 @@ function calculateParallelogramArea(){
         return;
     }
 
-    const area = base * height;
+    const area = (base * height).toFixed(2);
     console.log(area);
 
     const parallelogramArea = document.getElementById('parallelogram-area');
@@ -103,7 +92,7 @@ function calculateRhombusArea(){
         return;
     }
 
-    const area = 0.5 * d1Value * d2Value;
+    const area = (0.5 * d1Value * d2Value).toFixed(2);
     console.log(area);
 
     const rhombusArea = document.getElementById('rhombus-area');
@@ -121,7 +110,7 @@ function calculatePentagonArea(){
         return;
     }
 
-    const area = 0.5 * pentagonP * pentagonB;
+    const area = (0.5 * pentagonP * pentagonB).toFixed(2);
 
 
     const pentagonArea = document.getElementById('pentagon-area');
